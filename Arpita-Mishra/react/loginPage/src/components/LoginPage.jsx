@@ -17,76 +17,88 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex flex-col md:flex-row h-screen bg-primary text-white overflow-hidden">
       {/* Left side */}
-      <div className="w-2/5 bg-blue-900 text-white p-10 flex flex-col justify-between">
+      <div className="hidden md:flex w-2/5 bg-secondary p-12 flex-col justify-center border-r border-border">
         <div>
-          <h2 className="text-2xl">
-            Stadi<span className="text-yellow-400">a</span>
+          <h2 className="text-4xl font-bold">
+            stad<span className="text-accent">ia</span>
           </h2>
-          <p>Good to have you back</p>
+          <p className="text-text-secondary mt-3 text-lg">
+            Good to have you back
+          </p>
         </div>
 
-        {/* Card */}
-        <div className="bg-gray-700 border border-yellow-500 rounded-xl p-5">
-          <h3 className="text-yellow-400 font-semibold mb-2">
+        <div className="bg-card border border-accent/30 rounded-2xl p-6 mt-12 shadow-xl">
+          <h3 className="text-accent font-bold text-xl mb-3">
             MI vs CSK tonight
           </h3>
-          <p className="text-gray-300 text-sm">
-            Only 340 premium seats left. Log in to hold your before the queue
-            fills up.
+          <p className="text-gray-300 text-base leading-relaxed">
+            Only 340 premium seats left. Log in to hold yours before the queue fills up.
           </p>
         </div>
       </div>
 
       {/* Right side */}
-      <div className="w-3/5 p-10 flex items-center justify-center flex-col bg-neutral-900 text-white">
-        <h2 className="text-3xl font-bold">Welcome back</h2>
-        <p>Login to your Stadia account</p>
+      <div className="w-full md:w-3/5 flex items-center justify-center bg-primary p-6">
+        <div className="w-full max-w-md">
+          <div className="mb-10 text-center md:text-left">
+            <h2 className="text-4xl font-bold mb-2">Welcome back</h2>
+            <p className="text-text-secondary text-lg">
+              Log in to your Stadia account
+            </p>
+          </div>
 
-        <form onSubmit={handleSubmit} className="mt-5 w-full max-w-sm">
-          <input
-            type="email"
-            placeholder="ash@example.com"
-            className="w-full p-2 mb-3 rounded bg-gray-800 border border-gray-600"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <input
+                type="email"
+                placeholder="ash@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full p-4 bg-secondary border border-border rounded-xl text-white focus:outline-none focus:border-accent transition-all duration-200 placeholder:text-gray-600"
+              />
+            </div>
 
-         <input
-  type="password"
-  placeholder="********"
-  value={password}
-  onChange={(e) => setPassword(e.target.value)}
-  className="w-full p-2 mb-3 border rounded"
-/>
+            <div>
+              <input
+                type="password"
+                placeholder="********"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full p-4 bg-secondary border border-border rounded-xl text-white focus:outline-none focus:border-accent transition-all duration-200 placeholder:text-gray-600"
+              />
+            </div>
 
-<div className="text-right mb-4">
-  <span className="text-sm text-gray-500 hover:text-white cursor-pointer">
-    Forgot Password?
-  </span>
-</div>
+            <div className="flex justify-end">
+              <span className="text-sm text-text-secondary hover:text-white cursor-pointer transition">
+                Forgot Password?
+              </span>
+            </div>
 
-<button
-  onClick={handleSubmit}
-  className="w-full p-2 bg-blue-800 text-white rounded"
->
-  Log In
-</button>
+            {error && (
+              <div className="bg-error/10 border border-error/20 text-error text-sm p-4 rounded-xl">
+                {error}
+              </div>
+            )}
 
-{error && <p style={{ color: "red" }}>{error}</p>}
-</form>
+            <button
+              type="submit"
+              className="w-full p-4 bg-button hover:bg-button-hover transition rounded-xl text-white font-bold text-lg shadow-lg active:scale-95"
+            >
+              Log In
+            </button>
+          </form>
 
-<p className="text-gray-500">
-  New to Stadia?{" "}
-  <span className="text-gray-300 font-bold">
-    <a href="#">Create Account</a>
-  </span>
-</p>
-
-
-  </div>
-</div>
+          <p className="text-text-secondary text-base mt-8 text-center">
+            New to Stadia?{" "}
+            <span className="text-white hover:underline cursor-pointer font-bold ml-1">
+              Create Account
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
