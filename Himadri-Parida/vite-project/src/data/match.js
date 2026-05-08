@@ -1,4 +1,4 @@
-export const matches = [
+export const match = [
   {
     team1: "MI",
     team2: "CSK",
@@ -7,7 +7,7 @@ export const matches = [
     date: "19 Apr",
     venue: "Wankhede",
     price: "₹799+",
-    demand: "High Demand",
+    Demand: "High Demand",
   },
   {
     team1: "RCB",
@@ -17,7 +17,7 @@ export const matches = [
     date: "22 Apr",
     venue: "M Chinnaswamy",
     price: "₹699+",
-    demand: "Available",
+    Demand: "Available",
   },
   {
     team1: "SRH",
@@ -27,6 +27,6 @@ export const matches = [
     date: "25 Apr",
     venue: "Rajiv Gandhi Intl",
     price: "₹599+",
-    demand: "Available",
+    Demand: "Available",
   },
 ];

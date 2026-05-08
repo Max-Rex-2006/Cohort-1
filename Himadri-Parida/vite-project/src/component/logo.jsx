@@ -1,10 +1,13 @@
-export default function Logo(){
-    return(
-        <>
-        <h2 className="text-2xl">
-            stad<span className="text-yellow-400">ia</span>
-        </h2>
+import React from 'react';
 
-        </>
-    )
-}
+const logo = () => {
+  return (
+    <div className="flex items-center">
+      <h2 className="text-2xl font-bold text-white">
+        stad<span className="text-accent">ia</span>
+      </h2>
+    </div>
+  );
+};
+
+export default logo;
