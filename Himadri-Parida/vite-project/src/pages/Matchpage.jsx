@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import StadiaNavbar from "../component/StadiaNavbar";
 import CityFilter from "../component/CityFilter";
-import Card from "../component/card";
-import { matches } from "../data/match";
+import Card from "../component/Card";
+import { match } from "../data/match";
 
 export default function MatchPage() {
   const [selectedCity, setSelectedCity] = useState("All cities");
 
   const filteredMatches =
     selectedCity === "All cities"
-      ? matches
-      : matches.filter(
+      ? match
+      : match.filter(
           (match) =>
             match.city1 === selectedCity ||
             match.city2 === selectedCity

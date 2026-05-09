@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from "./logo";
+import logo from "./Logo";
 
 export default function StadiaNavbar() {
   return (
