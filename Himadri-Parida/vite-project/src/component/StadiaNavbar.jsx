@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from "./Logo";
+import Logo from "./Logo";
+import { Link } from 'react-router-dom';
 
 export default function StadiaNavbar() {
   return (
     <div className="flex justify-between items-center px-10 py-4 bg-secondary">
-      <logo />
+      <Logo />
 
       <div className="flex gap-6 text-text-secondary items-center">
         <span className="text-accent cursor-pointer hover:text-white transition">IPL 2026</span>
-        <span className="cursor-pointer hover:text-white transition">Movies</span>
+        <Link to="/movies" className="cursor-pointer hover:text-white transition">Movies</Link>
         <span className="cursor-pointer hover:text-white transition">Events</span>
         <span className="cursor-pointer hover:text-white transition">Dining</span>
       </div>
