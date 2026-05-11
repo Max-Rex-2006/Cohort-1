@@ -1,10 +1,13 @@
 import React from "react";
 import {createBrowserRouter,RouterProvider} from "react-router-dom"
-import Navbar from "./components/StadiaNavbar";
+
 import MatchPage from "./pages/MatchPage";
 import LoginPage from "./components/LoginPage";
+
 import BookingPage from "./pages/BookingPage";
 import SuccessPage from "./pages/SuccessPage";
+import MovieBookingPage from "./pages/MovieBookingPage";
+
 const App = () => {
   const router = createBrowserRouter(
     [
@@ -14,18 +17,19 @@ const App = () => {
         <div>
           <MatchPage/>
         </div>
-      },     
+      },
+     
       {
         path:'/bookings',
         element:<BookingPage/>
       },
-       {
-        path:'/login',
-        element:<LoginPage/>
-      },
       {
         path:'/success',
         element:<SuccessPage/>
+      },
+      {
+        path:'/movies',
+        element:<MovieBookingPage/>
       }
     ]
   );
@@ -35,4 +39,5 @@ const App = () => {
     </>
   );
 };
+
 export default App;
