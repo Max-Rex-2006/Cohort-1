@@ -40,9 +40,9 @@ const App = () => {
     ]
   );
   return (
-    <>
+    <BookingProvider>
       <RouterProvider router={router} />
-    </>
+    </BookingProvider>
   );
 };
 
