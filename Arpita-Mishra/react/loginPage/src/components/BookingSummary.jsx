@@ -19,6 +19,7 @@ const BookingSummary = ({movie,selectedSeats,ticketprice}) => {
         })
     }
 
+
   return (
     <div className="w-[350px] bg-secondary p-6 rounded-2xl border border-border shadow-xl h-fit sticky top-24">
         <h2 className="text-xl font-bold mb-6 border-b border-border pb-4 text-white">
