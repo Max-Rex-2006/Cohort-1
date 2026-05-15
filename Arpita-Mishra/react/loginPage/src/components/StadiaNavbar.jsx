@@ -10,8 +10,8 @@ export default function StadiaNavbar() {
       <div className="flex gap-6 text-text-secondary items-center">
         <span className="text-accent cursor-pointer hover:text-white transition">IPL 2026</span>
         <Link to="/movies" className="cursor-pointer hover:text-white transition">Movies</Link>
-        <span className="cursor-pointer hover:text-white transition">Events</span>
-        <span className="cursor-pointer hover:text-white transition">Dining</span>
+        <Link to="/Events" className="cursor-pointer hover:text-white transition">Events</Link>
+        <Link to="/dining" className="cursor-pointer hover:text-white transition">Dining</Link>
       </div>
 
       <div className="flex gap-3">
