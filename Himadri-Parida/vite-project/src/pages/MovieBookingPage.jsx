@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import StadiaNavbar from '../components/StadiaNavbar';
-import Seat from '../components/Seat';
-import BookingSummary from '../components/BookingSummary';
+import StadiaNavbar from '../component/StadiaNavbar';
+import Seat from '../component/Seat';
+import BookingSummary from '../component/BookingSummary';
 
 const MovieBookingPage = () => {
 

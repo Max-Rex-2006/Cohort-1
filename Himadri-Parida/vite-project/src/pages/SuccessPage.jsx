@@ -46,7 +46,7 @@ const SuccessPage = () => {
                         </p>
                         <p className='flex justify-between'>
                             <span className='text-text-secondary'>Venue:</span>
-                            <span className='font-medium text-white'>{movie ? movie.theatre : match.venue}</span>
+                            <span className='font-medium text-white'>{match ? match.venue: movie ? movie.venue : movie.theatre}</span>
                         </p>
                         <p className='flex justify-between'>
                             <span className='text-text-secondary'>Seats:</span>
