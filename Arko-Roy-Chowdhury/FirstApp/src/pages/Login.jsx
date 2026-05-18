@@ -20,7 +20,7 @@ const LoginPage = () => {
     <div className="flex h-screen bg-black text-white">
       {/* Left Sidebar */}
       <div className="w-2/5 bg-blue-900 p-10 flex flex-col justify-center">
-        <h1 className="text-4xl font-bold mb-2">stad<span className="text-yellow-500">ia</span></h1>
+        <h1 className="text-4xl font-bold mb-2">ARC<span className="text-yellow-500"></span></h1>
         <p className="text-gray-300 mb-8">Good to have you back.</p>
         
         <div className="bg-blue-800 p-6 rounded-lg border border-blue-700">

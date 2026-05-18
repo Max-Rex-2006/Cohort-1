@@ -1,4 +1,9 @@
 import React from "react";
+import Login from './pages/Login'
+import Registration from './pages/Registration'
+import { useState } from "react";
+import {css} from tailwindcss/defaultConfig;
+import {routes} from 'react-router-dom';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState("login");
@@ -6,9 +11,9 @@ const App = () => {
   return (
     <div>
       {currentPage === "login" ? (
-        <Login onSwitch={() => setCurrentPage("register")} />
+        <Login onCClick={() => setCurrentPage("register")} />
       ) : (
-        <Registration onSwitch={() => setCurrentPage("login")} />
+        <Registration onCClick={() => setCurrentPage("login")} />
       )}
     </div>
   );
