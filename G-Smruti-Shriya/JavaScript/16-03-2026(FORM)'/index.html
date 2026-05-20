@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Signup Practice</title>
+</head>
+<body>
+
+  <h2>Signup</h2>
+
+  <!-- SIGNUP FORM -->
+  <div id="signupSection">
+
+    <label>Name</label>
+    <input type="text" id="nameInput" placeholder="Your name" />
+    <span class="error" id="nameError"></span>
+
+    <label>Email</label>
+    <input type="email" id="emailInput" placeholder="you@example.com" />
+    <span class="error" id="emailError"></span>
+
+    <label>Password</label>
+    <input type="password" id="passwordInput" placeholder="Min 6 characters" />
+    <span class="error" id="passwordError"></span>
+
+    <button id="signupBtn">Sign Up</button>
+    <p id="successMsg" style="color: green; display: none;">Account created!</p>
+
+  </div>
+
+  <!-- SIGNED-IN USER LIST — hidden by default -->
+  <div id="userSection" style="display: none;">
+    <h3>Signed Up Users</h3>
+    <ul id="userList"></ul>
+    <button id="hideBtn">Hide Users</button>
+  </div>
+
+  <!-- TOGGLE BUTTON — only appears after first signup -->
+  <button id="toggleBtn" style="display: none; margin-top: 20px;">Show Signed-In Users</button>
+
+
+  <script>
+
+    // Array to store all signed-up user objects
+    const users = [];
+
+    // Grab elements we will reuse
+    const nameInput     = document.getElementById("nameInput");
+    const emailInput    = document.getElementById("emailInput");
+    const passwordInput = document.getElementById("passwordInput");
+
+    const nameError     = document.getElementById("nameError");
+    const emailError    = document.getElementById("emailError");
+    const passwordError = document.getElementById("passwordError");
+
+    const successMsg  = document.getElementById("successMsg");
+    const userList    = document.getElementById("userList");
+    const userSection = document.getElementById("userSection");
+    const toggleBtn   = document.getElementById("toggleBtn");
+
+
+    // ── SIGNUP BUTTON ──────────────────────────────────────────────
+    document.getElementById("signupBtn").addEventListener("click", function () {
+
+      // Clear previous errors and success message
+      nameError.textContent     = "";
+      emailError.textContent    = "";
+      passwordError.textContent = "";
+      successMsg.style.display  = "none";
+
+      // Read current input values
+      const name     = nameInput.value.trim();
+      const email    = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      // Validate each field
+      let hasError = false;
+
+      if (name === "") {
+        nameError.textContent = "Name is required.";
+        hasError = true;
+      }
+
+      if (email === "" || !email.includes("@")) {
+        emailError.textContent = "Enter a valid email.";
+        hasError = true;
+      }
+
+      if (password.length < 6) {
+        passwordError.textContent = "Password must be at least 6 characters.";
+        hasError = true;
+      }
+
+      if (hasError) return;   // stop — don't save if any field is wrong
+
+      // Save user as an object inside the array
+      const newUser = { name: name, email: email };
+      users.push(newUser);
+
+      // Show success
+      successMsg.style.display = "block";
+
+      // Clear inputs after successful signup
+      nameInput.value     = "";
+      emailInput.value    = "";
+      passwordInput.value = "";
+
+      // Rebuild the <ul> from the users array
+      userList.innerHTML = "";   // wipe old items first
+      for (let i = 0; i < users.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = users[i].name + " — " + users[i].email;
+        userList.appendChild(li);
+      }
+
+      // Reveal the toggle button once at least one user exists
+      toggleBtn.style.display = "inline-block";
+
+    });
+
+
+    // ── TOGGLE — show / hide the user list section ─────────────────
+    toggleBtn.addEventListener("click", function () {
+
+      if (userSection.style.display === "none") {
+        userSection.style.display = "block";
+        toggleBtn.textContent = "Hide Signed-In Users";
+      } else {
+        userSection.style.display = "none";
+        toggleBtn.textContent = "Show Signed-In Users";
+      }
+
+    });
+
+
+    // ── HIDE BUTTON inside user section ───────────────────────────
+    document.getElementById("hideBtn").addEventListener("click", function () {
+      userSection.style.display = "none";
+      toggleBtn.textContent = "Show Signed-In Users";
+    });
+
+
+  </script>
+</body>
+</html>

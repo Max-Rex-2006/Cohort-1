@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="auth-container">
+    <form id="signupForm">
+        <h2>Create Account</h2>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign Up</button>
+        </div>
+        <p>Already have an account? 
+            <span onclick="toggleForm()">Log in</span>
+        </p>
+    </form>
+    <form id="loginForm" class="hidden">
+        <h2>Welcome Back</h2>
+        
+        <div class="form-group">
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="loginUsername" name="loginUsername" required>
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+            <button type="submit">Log In</button>
+        </div>
+        <p>Don't have an account? 
+            <span onclick="toggleForm()">Sign up</span>
+    </form>
+
+</div>
+<script>
+    const signupForm = document.getElementById('signupForm');
+    signupForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const users = JSON.parse(localStorage.getItem('users')) || [];// Retrieve existing users from localStorage
+            if(users.find(user => user.username === username)) {
+                alert('Username already exists. Please choose a different one.');
+                return;
+            }
+            users.push({ Username:username, Password:password });// Add new user to the array
+            localStorage.setItem('users', JSON.stringify(users));// Save updated users array back to localStorage
+
+            alert('Account created successfully! Please log in.');
+        });
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const loginUsername = document.getElementById('loginUsername').value;
+            const loginPassword = document.getElementById('loginPassword').value;
+            const users = JSON.parse(localStorage.getItem('users')) || [];// Retrieve users from localStorage
+            const user = users.find(user => user.Username === loginUsername && user.Password === loginPassword);
+            if (user) {
+                alert('Logged in successfully!');
+            } else {
+                alert('Invalid username or password.');
+            }
+        });
+        function toggleForm() {
+        signupForm.classList.toggle('hidden');// Function to toggle between signup and login forms
+        loginForm.classList.toggle('hidden');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<div class="auth-container">
+    <form id="Sign up Form">
+        <input type=""password id="regpassword" placeholder="password" required>
+        <button type="submit">Sign up</button>
+        <p>Already have an account?
+        <span onclick="toggleForm()">Login</span>
+        </p>
+
+    </form><!--Signup form ends-->
+    <form id="loginForm" class="hidden"><!--login form starts(hidden by default)-->
+        <h2>Welcome Back</h2>
+        <input type="text" id="loginUsername" placeholder="Username" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <p>New here?
+            <span onclick="toggleForm()">Sign Up</span>
+        </p>
+    </form><!--login form ends-->
+</div>
+<script>
+    const signupForm=document.getElemenById('signForm');
+    SignupForm.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const user=document.getElementById('regUsername').value;
+        const pass=document.getElementById('regPassword').value;
+        const users=JSon.parse(localStorage.getItem('users')) || [];
+        if (users.find(u=>u.username===user)){
+            alert("Username Taken");
+            return;
+
+        }
+        Users.push({Username:user,password:pass});
+        localStorage.setItem('users',JSON.stringify(Users));
+        alert("Signup Successfull Please Login.");
+        toggleForm();
+        // switch from signup form to login form
+    });
+    function toggleForm(){
+        document.getElementById('signupForm').classList.toggle('hidden');
+        document.getElementById('loginForm').classList.toggle('hidden');
+    }
+</script>

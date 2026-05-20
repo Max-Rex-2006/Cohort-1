@@ -1,0 +1,45 @@
+// DOM MANIPULATION(How browser creates DOM)
+1.write HTML Code
+2.Browser fetches HTML file.
+3.Browser PARSES the HTML (reads it top to bottom)
+4.Browser creates a TREE of NODES in memory(the DOM)
+5.Browser RENDERS(paints) the page based on the DOM + CSS
+6.JavaScript can now ACCESS and MODIFY the DOM
+7.Any change of the DOM -> browser RE-RENDERS the affected part
+
+
+//JSON
+STORES THE DATA IN KEY VALUE PAIRS
+SYNTAX OF LOCAL STORAGE:
+SAVE DATA:
+localstorage.setItem('key','value')
+
+REMOVE DATA:
+localstorage.remove('key')
+
+CLEAR DATA:
+localstorage.clear()//clear all data from local STORAGE
+
+RETRIEVE DATA:
+var value=localstorage.getItem('key')
+
+WHY JSON IS NEEDED?
+We convert objects to strings using json.stringify() to store them in local storage,
+and we convert them back to objects using json.parse() and returns as javastript objects allowing us to retrieve.
+
+JSON.stringify()
+example-
+const user-{
+    name:"Rahul"
+};
+JSON.stringify(user); //{"name":"Rahul"}
+
+Layer 1:
+UI
+HTML FORMS COLLECT THE <INPUT></INPUT>
+Layer 2:
+LOGIC:
+    JS TO PROCESS THE DATA(VALIDATE,CHECK,STORE)
+Layer 3:
+STORAGE:
+    WE MUST STORE USER DATA SOMEWHERE(LOCAL STORAGE,DATABASE,ETC)
